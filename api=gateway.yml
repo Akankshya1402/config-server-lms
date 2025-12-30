@@ -1,0 +1,41 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+      routes:
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/api/auth/**
+
+        - id: customer-service
+          uri: lb://customer-service
+          predicates:
+            - Path=/api/customers/**
+
+        - id: loan-application-service
+          uri: lb://loan-application-service
+          predicates:
+            - Path=/api/loans/**
+
+        - id: loan-processing-service
+          uri: lb://loan-processing-service
+          predicates:
+            - Path=/api/processing/**
+
+        - id: repayment-service
+          uri: lb://repayment-service
+          predicates:
+            - Path=/api/repayments/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
