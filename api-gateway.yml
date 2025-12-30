@@ -2,6 +2,9 @@ server:
   port: 8080
 
 spring:
+  profiles:
+    active: dev
+
   cloud:
     gateway:
       discovery:
@@ -10,6 +13,7 @@ spring:
           lower-case-service-id: true
 
       routes:
+
         - id: auth-service
           uri: lb://auth-service
           predicates:
@@ -19,6 +23,11 @@ spring:
           uri: lb://customer-service
           predicates:
             - Path=/api/customers/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: customerCB
+                fallbackUri: forward:/fallback/customer
 
         - id: loan-application-service
           uri: lb://loan-application-service
@@ -39,3 +48,14 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+logging:
+  level:
+    org.springframework.cloud.gateway: INFO
+
