@@ -2,32 +2,11 @@ server:
   port: 8080
 
 spring:
-
   application:
     name: api-gateway
 
   cloud:
     gateway:
-
-      # 🔥🔥🔥 CORS CONFIG (MANDATORY)
-      globalcors:
-        add-to-simple-url-handler-mapping: true
-        corsConfigurations:
-          '[/**]':
-            allowedOrigins:
-              - http://localhost:4200
-            allowedMethods:
-              - GET
-              - POST
-              - PUT
-              - DELETE
-              - OPTIONS
-            allowedHeaders:
-              - "*"
-            allowCredentials: true
-
-      default-filters:
-        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
 
       discovery:
         locator:
