@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: customer-service
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/lms_customer_db
+
+server:
+  port: 8081   # or remove if using Eureka + port 0
+
+logging:
+  level:
+    root: INFO
+    com.lms.customer: DEBUG
