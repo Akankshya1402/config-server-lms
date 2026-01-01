@@ -4,7 +4,7 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/loan_management
+      uri: mongodb://localhost:27017/loan_processing_db
 
   kafka:
     bootstrap-servers: localhost:9092
