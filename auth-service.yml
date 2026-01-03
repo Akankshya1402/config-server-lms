@@ -7,7 +7,7 @@ spring:
       uri: mongodb://localhost:27017/auth_db
 
 jwt:
-  secret: LMS_SECRET_KEY_123456789
+  secret: EnPbZ5oar9qDWB9QmBDxP6HaLChzDEY7pLI+E7NZ09qpQkCR+vZyioF6z1fWWx/3
   expiration: 86400000
 
 eureka:
