@@ -1,0 +1,25 @@
+server:
+  port: 8086
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/lms_analytics_db
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+logging:
+  level:
+    root: INFO
+    com.lms.analytics: DEBUG
