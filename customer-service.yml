@@ -3,10 +3,10 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/customer_db
 
-security:
-  jwt:
-    secret: THIS_IS_A_VERY_SECURE_SECRET_KEY_FOR_LMS_AUTH_SERVICE_256_BITS
-
+jwt:
+  secret: THIS_IS_A_VERY_SECURE_SECRET_KEY_FOR_LMS_AUTH_SERVICE_256_BITS
+  expiration: 86400000
+  
 management:
   endpoints:
     web:
