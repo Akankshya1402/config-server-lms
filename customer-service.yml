@@ -1,4 +1,7 @@
 spring:
+  application:
+    name: customer-service
+
   data:
     mongodb:
       uri: mongodb://localhost:27017/customer_db
@@ -7,8 +10,26 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          secret-key: p9A2ZK8xLMSAuthSecretKey_2026_SECURE_64CHAR_RANDOM_XYZ
+          # This is REQUIRED only if you use issuer-uri / jwk-set-uri
+          # We are NOT using those (symmetric key instead)
+          # So keep this section minimal
+          enabled: true
+
+server:
+  port: 0   # dynamic port (Eureka-friendly)
+
+security:
+  jwt:
+    # 🔐 MUST MATCH auth-service secret EXACTLY
+    secret: p9A2ZK8xLMSAuthSecretKey_2026_SECURE_64CHAR_RANDOM_XYZ
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
 
 logging:
   level:
+    root: INFO
     com.lms.customer: DEBUG
