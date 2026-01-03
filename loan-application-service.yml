@@ -1,10 +1,7 @@
+# =========================
+# MongoDB Configuration
+# =========================
 spring:
-  application:
-    name: loan-application-service
-
-  # =========================
-  # MongoDB Configuration
-  # =========================
   data:
     mongodb:
       uri: mongodb://localhost:27017/lms_loan_application_db
@@ -14,7 +11,6 @@ spring:
   # =========================
   kafka:
     bootstrap-servers: localhost:9092
-
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
@@ -29,9 +25,17 @@ kafka:
     loan-application: loan.application.events
 
 # =========================
-# Logging (Sonar-friendly)
+# Actuator (recommended)
+# =========================
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,refresh
+
+# =========================
+# Logging
 # =========================
 logging:
   level:
-    root: INFO
     com.lms.loanapplication: DEBUG
