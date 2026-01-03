@@ -1,26 +1,10 @@
 spring:
-  application:
-    name: customer-service
-
   data:
     mongodb:
       uri: mongodb://localhost:27017/customer_db
 
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          # This is REQUIRED only if you use issuer-uri / jwk-set-uri
-          # We are NOT using those (symmetric key instead)
-          # So keep this section minimal
-          enabled: true
-
-server:
-  port: 0   # dynamic port (Eureka-friendly)
-
 security:
   jwt:
-    # 🔐 MUST MATCH auth-service secret EXACTLY
     secret: EnPbZ5oar9qDWB9QmBDxP6HaLChzDEY7pLI+E7NZ09qpQkCR+vZyioF6z1fWWx/3
 
 management:
@@ -31,5 +15,4 @@ management:
 
 logging:
   level:
-    root: INFO
     com.lms.customer: DEBUG
