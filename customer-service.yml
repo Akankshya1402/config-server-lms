@@ -21,7 +21,7 @@ server:
 security:
   jwt:
     # 🔐 MUST MATCH auth-service secret EXACTLY
-    secret: p9A2ZK8xLMSAuthSecretKey_2026_SECURE_64CHAR_RANDOM_XYZ
+    secret: EnPbZ5oar9qDWB9QmBDxP6HaLChzDEY7pLI+E7NZ09qpQkCR+vZyioF6z1fWWx/3
 
 management:
   endpoints:
