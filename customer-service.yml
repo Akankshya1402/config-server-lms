@@ -5,7 +5,7 @@ spring:
 
 security:
   jwt:
-    secret: EnPbZ5oar9qDWB9QmBDxP6HaLChzDEY7pLI+E7NZ09qpQkCR+vZyioF6z1fWWx/3
+    secret: THIS_IS_A_VERY_SECURE_SECRET_KEY_FOR_LMS_AUTH_SERVICE_256_BITS
 
 management:
   endpoints:
