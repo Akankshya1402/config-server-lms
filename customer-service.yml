@@ -5,7 +5,7 @@ spring:
 
 security:
   jwt:
-    secret: THIS_IS_A_VERY_SECURE_SECRET_KEY_FOR_LMS_CUSTOMER_SERVICE
+    secret: THIS_IS_A_VERY_SECURE_SECRET_KEY_FOR_LMS_256_BITS
     expiration: 86400000   # 24 hours in ms
 
 eureka:
