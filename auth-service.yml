@@ -6,9 +6,10 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/auth_db
 
-jwt:
-  secret: THIS_IS_A_VERY_SECURE_SECRET_KEY_FOR_LMS_256_BITS
-  expiration: 86400000
+security:
+  jwt:
+    secret: THIS_IS_A_VERY_SECURE_SECRET_KEY_FOR_LMS_256_BITS
+    expiration: 86400000
 
 eureka:
   client:
