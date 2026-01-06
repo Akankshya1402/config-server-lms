@@ -1,5 +1,5 @@
 server:
-  port: 0   # dynamic port (required for Eureka + Gateway)
+  port: 0   # dynamic port for Eureka
 
 spring:
   application:
@@ -7,10 +7,10 @@ spring:
 
   data:
     mongodb:
-      uri: mongodb://localhost:27017/loan_processing_db
+      uri: mongodb://mongo:27017/loan_processing_db
 
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: kafka:9092
 
     consumer:
       group-id: loan-processing-group
@@ -22,7 +22,7 @@ spring:
 
       properties:
         spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
-        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
+        spring.deserializer.value.delegate.class: org.apache.kafka.common.serialization.JsonDeserializer
 
         spring.json.trusted.packages: com.lms.loanprocessing.event
         spring.json.value.default.type: com.lms.loanprocessing.event.LoanApprovedEvent
@@ -31,7 +31,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://eureka-server:8761/eureka/
     register-with-eureka: true
     fetch-registry: true
 
@@ -40,5 +40,6 @@ management:
     web:
       exposure:
         include: health,info
+
 
 
