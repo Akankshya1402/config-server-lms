@@ -46,10 +46,3 @@ logging:
   level:
     org.springframework.mail: DEBUG
     jakarta.mail: DEBUG
-
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
